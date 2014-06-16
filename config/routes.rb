@@ -55,4 +55,10 @@ Rails.application.routes.draw do
   #   end
 
   get "/" => "galleries#index"
+  get "/galleries/new" => "galleries#new"
+  get "/galleries/:id/edit" => "galleries#edit"
+  get "/galleries/:id" => "galleries#show"
+  post "/galleries" => "galleries#create"
+  patch "/galleries/:id" => "galleries#update"
+  delete "/galleries/:id" => "galleries#destroy"
 end
