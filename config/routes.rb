@@ -54,7 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get "/" => "galleries#index"
+  get "/galleries" => "galleries#index"
   get "/galleries/new" => "galleries#new"
   get "/galleries/:id/edit" => "galleries#edit"
   get "/galleries/:id" => "galleries#show"
