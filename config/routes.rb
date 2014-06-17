@@ -53,7 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :galleries do
+    get "/images/new" => "images#new"
 
+  end
+  
   get "/galleries" => "galleries#index"
   get "/galleries/new" => "galleries#new"
   get "/galleries/:id/edit" => "galleries#edit"
