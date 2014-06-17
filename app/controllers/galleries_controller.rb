@@ -39,7 +39,6 @@ class GalleriesController < ApplicationController
     params.require(:gallery).permit(
       :name,
       :description,
-      :id
       )
 
 

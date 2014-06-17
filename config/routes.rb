@@ -55,9 +55,10 @@ Rails.application.routes.draw do
   #   end
   resources :galleries do
     get "/images/new" => "images#new"
+    post "/images" => "images#create"
 
   end
-  
+
   get "/galleries" => "galleries#index"
   get "/galleries/new" => "galleries#new"
   get "/galleries/:id/edit" => "galleries#edit"
