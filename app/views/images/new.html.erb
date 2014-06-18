@@ -1,7 +1,2 @@
 <p> WOMBAT OR CAT IMAGES!!!!</p>
-<%= form_for @image, url: "/galleries/#{@gallery.id}/images" do |form|%>
-  <%= form.label :url, "URL"%>
-  <%= form.text_field :url %>
-  <%= form.submit "Add new image" %>
-<% end %>
-
+<%= render 'form'%>

@@ -53,17 +53,19 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :galleries do
-    get "/images/new" => "images#new"
-    post "/images" => "images#create"
+  resources :galleries do [:show, :new, :create, :edit, :update, :destroy]
+    resources :images, only: [:new, :create, :edit, :update]
+
+    # get "/images/new" => "images#new"
+    # post "/images" => "images#create"
 
   end
 
-  get "/galleries" => "galleries#index"
-  get "/galleries/new" => "galleries#new"
-  get "/galleries/:id/edit" => "galleries#edit"
-  get "/galleries/:id" => "galleries#show"
-  post "/galleries" => "galleries#create"
-  patch "/galleries/:id" => "galleries#update"
-  delete "/galleries/:id" => "galleries#destroy"
+  # get "/galleries" => "galleries#index"
+  # get "/galleries/new" => "galleries#new"
+  # get "/galleries/:id/edit" => "galleries#edit"
+  # get "/galleries/:id" => "galleries#show"
+  # post "/galleries" => "galleries#create"
+  # patch "/galleries/:id" => "galleries#update"
+  # delete "/galleries/:id" => "galleries#destroy"
 end
