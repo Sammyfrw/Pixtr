@@ -62,6 +62,8 @@ Rails.application.routes.draw do
     # post "/images" => "images#create"
 
   end
+  resources :users, only: [:create]
+  get "/sign_up", to: "users#new"
 
   # get "/galleries" => "galleries#index"
   # get "/galleries/new" => "galleries#new"
