@@ -63,7 +63,10 @@ Rails.application.routes.draw do
 
   end
   resources :users, only: [:create]
+  resource :session, only: [:create]
+
   get "/sign_up", to: "users#new"
+  get "/sign_in", to: "sessions#new"
 
   # get "/galleries" => "galleries#index"
   # get "/galleries/new" => "galleries#new"
