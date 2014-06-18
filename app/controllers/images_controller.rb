@@ -6,21 +6,27 @@ class ImagesController < ApplicationController
 
   def create
     gallery = Gallery.find(params[:gallery_id])
-    image = Image.create(image_params)
-
-    redirect_to "/galleries/#{gallery.id}"
+    image = Image.new(image_params)
+    if image.save
+      redirect_to gallery
+    else
+      render :new
+    end
   end
 
   def edit
     @gallery = Gallery.find(params[:gallery_id])
-    @image = Image.find(params[:id])
+    @image = @gallery.image.find(params[:id])
   end
 
   def update
     @gallery = Gallery.find(params[:gallery_id])
-    @image = Image.find(params[:id])
-    @image.update(image_params)
-    redirect_to @gallery
+    @image = @gallery.image.find(params[:id])
+    if @image.update(image_params)
+      redirect_to @gallery
+    else 
+      render :edit
+    end
   end
 
 private

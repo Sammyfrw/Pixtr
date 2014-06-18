@@ -1,29 +1,4 @@
 <p><%="Edit #{@gallery.name}"%></p>
-
 <%= form_for @gallery do |form| %>
-
-  <% if @gallery.errors.any? %>
-    <h2> THERE WERE ERRORS! <%= pluralize @gallery.errors.count, 'error'%> on this form! </h2>
-    <ul>
-        <% @gallery.errors.full_messages.each do |message| %>
-      <li>
-        <%= message%>
-      </li>
-      <%end%>
-    </ul>
-  <%end%>
-
-  <div>
-    <%= form.label :name%>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-      <%= form.label :description%>
-      <%= form.text_area :description %>
-  </div>
-
-<%= form.submit "Edit gallery"%>
-  
+<%= render 'form', form: form%>
 <% end%>
-

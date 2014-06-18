@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  root to: "galleries#index"
   resources :galleries do [:show, :new, :create, :edit, :update, :destroy]
     resources :images, only: [:new, :create, :edit, :update]
 

@@ -1,2 +1,4 @@
 <p> WOMBAT OR CAT IMAGES!!!!</p>
-<%= render 'form'%>
+<%= form_for [@gallery, @image] do |form|%>
+<%= render 'form', form: form%>
+<% end %>
