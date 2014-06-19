@@ -2,9 +2,10 @@
   <h2> THERE WERE ERRORS! <%= pluralize target.errors.count, 'error'%> on this form! </h2>
   <ul>
     <% target.errors.full_messages.each do |message| %>
-  <li><style='color: red'>
+  <li>
+    <font color="red">
     <%= message%>
-    </style>
+    </font>
   </li>
   <%end%>
   </ul>
