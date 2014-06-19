@@ -62,8 +62,8 @@ Rails.application.routes.draw do
     # post "/images" => "images#create"
 
   end
-  resources :users, only: [:create]
-  resource :session, only: [:create]
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   get "/sign_up", to: "users#new"
   get "/sign_in", to: "sessions#new"
