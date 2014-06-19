@@ -13,22 +13,28 @@ class GalleriesController < ApplicationController
   end
 
   def create
-    gallery = Gallery.new(gallery_params)
-    if gallery.save
+    params_with_user_id = gallery_params.merge(
+      user_id: current_user.id
+      )
+    @gallery = Gallery.new(params_with_user_id)
+    if @gallery.save
       # gallery = Gallery.create(gallery_params)
-      redirect_to gallery
+      redirect_to @gallery
     else
-      @gallery = gallery
       render :new
     end
   end
 
  def edit
-    @gallery = Gallery.find(params[:id])
+    # @gallery = Gallery.find(params[:id])
+    @gallery = current_user.galleries.find(params[:id])
+    the_user = current_user
+    galleries_owned_by_them = the_user.galleries
+
   end
 
   def update
-    @gallery = Gallery.find(params[:id])
+    @gallery = current_user.galleries.find(params[:id])
     if @gallery.update(gallery_params)
       redirect_to @gallery
     else
@@ -37,7 +43,7 @@ class GalleriesController < ApplicationController
   end
 
   def destroy
-    gallery = Gallery.find(params[:id])
+    gallery = current_user.galleries.find(params[:id])
     gallery.destroy
     redirect_to root_path
   end
