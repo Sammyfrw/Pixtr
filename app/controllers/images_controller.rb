@@ -6,6 +6,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    @comment = Comment.new  
   end
 
   def create
@@ -37,4 +38,6 @@ private
     params.require(:image).permit(:url).
     merge(gallery_id: params[:gallery_id])
    end
+
+  
 end

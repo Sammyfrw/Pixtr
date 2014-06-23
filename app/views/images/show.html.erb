@@ -1,1 +1,11 @@
 <%= image_tag(@image.url)%>
+<p> Comments...</p>
+
+<%= render "error_messages", target: @comment %>
+<%= form_for [@image, @comment] do |form| %> 
+ <div>
+    <%= form.label :body%>
+    <%= form.text_field :body %>
+    <%= form.submit "Submit comment" %>
+  </div>
+<% end%>
