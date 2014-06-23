@@ -56,12 +56,14 @@ Rails.application.routes.draw do
 
   root to: "galleries#index"
   resources :galleries do [:show, :new, :create, :edit, :update, :destroy]
-    resources :images, only: [:new, :create, :edit, :update]
+    resources :images, only: [:new, :create, :show]
 
     # get "/images/new" => "images#new"
     # post "/images" => "images#create"
 
   end
+
+  resources :images, only: [:show, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
