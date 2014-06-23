@@ -1,6 +1,16 @@
 <%= image_tag(@image.url)%>
 <p> Comments...</p>
 
+<ul>
+<% @comments.each do |comment| %>
+  <li>
+    <p><%= comment.body %></p>
+    <p><%= time_ago_in_words comment.created_at %></p>
+    <p>Written by <%=comment.user.email %></p>
+  <%end%>
+</ul>
+
+
 <%= render "error_messages", target: @comment %>
 <%= form_for [@image, @comment] do |form| %> 
  <div>
