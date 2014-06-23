@@ -4,6 +4,7 @@
   <%= image_tag(image.url)%>
   <% if current_user == @gallery.user%>
   <%= link_to "Edit image", [:edit, @gallery, image]%>
+  Created <%= time_ago_in_words image.created_at %> ago
   <% end%>
 
 <%end%>
