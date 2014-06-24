@@ -11,6 +11,7 @@
 <% if signed_in? %>
   You are signed in as: <%= current_user.email%>
   <%= button_to "Sign out", :session, method: :delete  %>
+  <%= link_to "Create a new group", [:new, :group]%>
   <% else %>
   <%= link_to "Sign up", [:new, :user] %>
   <%= link_to "Sign in", [:new, :session] %>
