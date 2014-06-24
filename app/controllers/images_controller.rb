@@ -6,6 +6,8 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    @groups = Group.all
+    # @groupimage = GroupImage.new(image_id: @image.id)
     @comment = Comment.new  
     @comments = @image.comments.recent
   end

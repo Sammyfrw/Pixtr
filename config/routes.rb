@@ -64,13 +64,17 @@ Rails.application.routes.draw do
   end
 
   resources :images, only: [:show, :edit, :update] do
+
     resources :comments, only: [:create]
   end
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :groups, only: [:new, :create]
-
+  
+  resources :groups, only: [:index, :new, :create, :show] do
+    resources :group_memberships, only: [:create, :destroy]
+  end
+  resources :group_images, only: [:create]
   get "/sign_up", to: "users#new"
   get "/sign_in", to: "sessions#new"
 

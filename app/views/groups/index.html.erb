@@ -1,0 +1,24 @@
+<ul>
+  <% @group.each do |group|%>
+  <li>
+    <%= render group%>
+    <% if !current_user.member?(group) %>
+    <%= form_for [group, @group_membership] do |form| %>
+      <%= form.submit "Join this group!"%>
+     <%end%>
+     <% end%>
+     <%end%>
+  </ul>
+
+
+
+ <p>My Groups</b>
+  <ul>
+  <% @my_groups.each do |group|%>
+    <li> 
+      <%= render group%>
+    <%=form_for [group, @group_membership], method: :delete do |form|%>
+      <%= form.submit "Leave this group :("%>
+      <%end%>
+  <%end%>
+</ul>

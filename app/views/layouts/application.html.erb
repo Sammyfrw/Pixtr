@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1><%=link_to "Pixtr", root_path %></h1>
+  <%= link_to "View groups", :groups%>
 <% if signed_in? %>
   You are signed in as: <%= current_user.email%>
   <%= button_to "Sign out", :session, method: :delete  %>
@@ -21,3 +22,4 @@
 
 </body>
 </html>
+  
