@@ -5,6 +5,6 @@
 
 <% @group.images.each do |image| %>
   <%=link_to(image) do%>
-  <%= image_tag(@image.url)%>
+  <%= image_tag(image.url)%>
   <%end%>
 <%end%>

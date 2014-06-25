@@ -72,7 +72,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   resources :groups, only: [:index, :new, :create, :show] do
-    resources :group_memberships, only: [:create, :destroy]
+    resource :group_membership, only: [:create, :destroy]
   end
   resources :group_images, only: [:create]
   get "/sign_up", to: "users#new"
