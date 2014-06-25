@@ -1,5 +1,7 @@
 <%= image_tag(@image.url)%>
 
+<%= render "likes" %>
+
 <%= form_for @image do |form| %>
 <%=form.label "Groups"%>
 <%= form.collection_check_boxes :group_ids, @groups, :id, :name%>
