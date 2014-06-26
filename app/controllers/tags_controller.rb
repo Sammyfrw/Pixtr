@@ -1,8 +1,16 @@
 class TagsController < ApplicationController
+
+  def show
+    @tag = Tag.find(params[:id])
+    # @image = @tag.images
+  end
+
   def create
+    image = Image.find(params[:image_id])
     tag_input = Tag.new
     tag_input.split_tags(tag_params, params[:image_id])
-    redirect_to "images/show"
+    redirect_to image
+  end
 
     # @tag = Tag.new(tag_params)
 
@@ -20,7 +28,7 @@ class TagsController < ApplicationController
     # else
     #   render "images/show"
     # end
-  end
+  
 
   private 
   def tag_params

@@ -4,9 +4,8 @@ class Tag < ActiveRecord::Base
 
   def split_tags(tag_params, image_id)
     tag_names = tag_params[:tagname].split(",")
-    puts tag_names.inspect
     tag_names.map do |tagname|
-      tag = Tag.find_or_create_by(tagname: tagname)
+      tag = Tag.find_or_create_by(tagname: tagname.strip.downcase)
       if tag
         ImageTag.create(tag_id: tag.id, 
         image_id: image_id)

@@ -62,7 +62,8 @@ Rails.application.routes.draw do
     # post "/images" => "images#create"
 
   end
-
+  resources :tags, only: [:show]
+  
   resources :images, only: [:show, :edit, :update] do
     resources :comments, only: [:create]
     resource :like, only: [:create, :destroy]

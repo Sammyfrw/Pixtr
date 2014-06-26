@@ -4,9 +4,10 @@
 
 <div>
   Image tags: <% @image.tags.each do|tag|%>
-    <%= tag.tagname.downcase%>
+    <%= link_to tag.tagname.downcase, tag%>
     <%end%>
   <%if signed_in?%>
+  <%=render "error_messages", target: @image %>
   <%= form_for [@image, @tag] do |form|%>
     <%=form.label "Tags"%>
     <%=form.text_field :tagname%>
