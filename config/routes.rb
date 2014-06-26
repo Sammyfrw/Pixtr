@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   resources :images, only: [:show, :edit, :update] do
     resources :comments, only: [:create]
     resource :like, only: [:create, :destroy]
+    resources :tags, only: [:create]
   end
 
   resource :session, only: [:new, :create, :destroy]

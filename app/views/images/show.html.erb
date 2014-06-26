@@ -1,4 +1,19 @@
+<div>
 <%= image_tag(@image.url)%>
+</div>
+
+<div>
+  Image tags: <% @image.tags.each do|tag|%>
+    <%= tag.tagname.downcase%>
+    <%end%>
+  <%if signed_in?%>
+  <%= form_for [@image, @tag] do |form|%>
+    <%=form.label "Tags"%>
+    <%=form.text_field :tagname%>
+    <%=form.submit "Add tags"%>
+    <%end%>
+  <%end%>
+</div>
 
 <%= render "likes" %>
 
@@ -24,7 +39,7 @@
 <%= render "error_messages", target: @comment %>
 <%= form_for [@image, @comment] do |form| %> 
  <div>
-    <%= form.label :body%>
+    <%= form.label :body, "Add comment"%>
     <%= form.text_field :body %>
     <%= form.submit "Submit comment" %>
   </div>

@@ -10,6 +10,7 @@ class ImagesController < ApplicationController
     # @groupimage = GroupImage.new(image_id: @image.id)
     @comment = Comment.new  
     @comments = @image.comments.recent
+    @tag = Tag.new
   end
 
   def create
