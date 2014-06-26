@@ -7,8 +7,7 @@ class TagsController < ApplicationController
 
   def create
     image = Image.find(params[:image_id])
-    tag_input = Tag.new
-    tag_input.split_tags(tag_params, params[:image_id])
+    image.add_tags(tag_params)
     redirect_to image
   end
 

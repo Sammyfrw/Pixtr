@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
     # @groupimage = GroupImage.new(image_id: @image.id)
     @comment = Comment.new  
     @comments = @image.comments.recent
-    @tag = Tag.new
+    
   end
 
   def create
@@ -40,6 +40,7 @@ private
 
   def image_params
     params.require(:image).permit(:url,
+      :tag_list,
       group_ids: [])
     # merge(gallery_id: params[:gallery_id])
    end

@@ -4,14 +4,14 @@
 
 <div>
   Image tags: <% @image.tags.each do|tag|%>
-    <%= link_to tag.tagname.downcase, tag%>
+    <%= link_to tag.tagname, tag%>
     <%end%>
   <%if signed_in?%>
   <%=render "error_messages", target: @image %>
-  <%= form_for [@image, @tag] do |form|%>
+  <%= form_for @image do |form|%>
     <%=form.label "Tags"%>
-    <%=form.text_field :tagname%>
-    <%=form.submit "Add tags"%>
+    <%=form.text_field :tag_list%>
+    <%=form.submit "Update Tags"%>
     <%end%>
   <%end%>
 </div>
